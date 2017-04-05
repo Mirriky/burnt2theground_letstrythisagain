@@ -48,6 +48,7 @@ namespace ConverterApp
                 dbl_Convert = dbl_UofM * CM_TO_INCH;
                 txt_Convert.Text = dbl_Convert.ToString();
 
+                // Checking for plural usage
                 if (dbl_UofM == 1)
                 {
                     lbl_Display.Text = txt_UnitOfMeasure.Text + " metre is converted to ";
@@ -81,8 +82,13 @@ namespace ConverterApp
             }
             else
             {
+                // Converting C to F
                 dbl_Convert = dbl_UofM * 1.8 + 32;
+
+                // adding the little °
                 txt_Convert.Text = dbl_Convert.ToString() + "°";
+
+                // displaying text
                 lbl_Display.Text = txt_UnitOfMeasure.Text + "° Celsius is converted to ";
                 lbl_Convert.Text = " Fahrenheit.";
             }
