@@ -22,6 +22,8 @@ namespace ConverterApp
 
         // Global Variables and Constants
         double dbl_UofM, dbl_Convert;
+        // array of values to multiply by - cm, m, C
+        double[] formula = { 0.3937, 3.28084, 1.8 };
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
@@ -30,7 +32,6 @@ namespace ConverterApp
 
         private void btn_CM_to_Inches_Click(object sender, EventArgs e)
         {
-            const double CM_TO_INCH = 0.3937;
 
             // validate user entry and convert to a double
 
@@ -45,7 +46,7 @@ namespace ConverterApp
             }
             else
             {
-                dbl_Convert = dbl_UofM * CM_TO_INCH;
+                dbl_Convert = dbl_UofM * formula[0];
                 txt_Convert.Text = dbl_Convert.ToString();
 
                 // Checking for plural usage
@@ -83,7 +84,7 @@ namespace ConverterApp
             else
             {
                 // Converting C to F
-                dbl_Convert = dbl_UofM * 1.8 + 32;
+                dbl_Convert = dbl_UofM * formula[2] + 32;
 
                 // adding the little °
                 txt_Convert.Text = dbl_Convert.ToString() + "°";
@@ -96,8 +97,6 @@ namespace ConverterApp
 
         private void btn_M_to_Feet_Click(object sender, EventArgs e)
         {
-            const double M_TO_FEET = 3.28084;
-
             // Create Code for this procedure
             if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
@@ -110,7 +109,7 @@ namespace ConverterApp
             }
             else
             {
-                dbl_Convert = dbl_UofM * M_TO_FEET;
+                dbl_Convert = dbl_UofM * formula[1];
                 txt_Convert.Text = dbl_Convert.ToString();
                 if (dbl_UofM == 1)
                 {
