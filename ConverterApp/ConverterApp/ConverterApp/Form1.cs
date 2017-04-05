@@ -47,7 +47,18 @@ namespace ConverterApp
             {
                 dbl_Convert = dbl_UofM * CM_TO_INCH;
                 txt_Convert.Text = dbl_Convert.ToString();
+                lbl_Display.Text = txt_UnitOfMeasure.Text + " centimetre is converted to ";
+            }
+                else
+                {
                 lbl_Display.Text = txt_UnitOfMeasure.Text + " centimetres is converted to ";
+            }
+            if (dbl_Convert == 1)
+            {
+                lbl_Convert.Text = " inch.";
+            }
+            else
+            {
                 lbl_Convert.Text = " inches.";
             }
         }
@@ -70,9 +81,22 @@ namespace ConverterApp
             {
                 dbl_Convert = dbl_UofM * M_TO_FEET;
                 txt_Convert.Text = dbl_Convert.ToString();
-                lbl_Display.Text = txt_UnitOfMeasure.Text + " metres is converted to ";
-                lbl_Convert.Text = " feet.";
-            }
+                if (dbl_UofM == 1)
+                {
+                    lbl_Display.Text = txt_UnitOfMeasure.Text + " metre is converted to ";
+                }
+                else
+                {
+                    lbl_Display.Text = txt_UnitOfMeasure.Text + " metres is converted to ";
+                }
+                if (dbl_Convert == 1)
+                {
+                    lbl_Convert.Text = " foot.";
+                }
+                else
+                {
+                    lbl_Convert.Text = " feet.";
+                }
         }
     }
 }
