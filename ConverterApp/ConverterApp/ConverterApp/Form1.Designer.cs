@@ -125,6 +125,7 @@
             this.btn_C_to_F.TabIndex = 8;
             this.btn_C_to_F.Text = "°C to °F";
             this.btn_C_to_F.UseVisualStyleBackColor = true;
+            this.btn_C_to_F.Click += new System.EventHandler(this.btn_C_to_F_Click);
             // 
             // frm_Main
             // 

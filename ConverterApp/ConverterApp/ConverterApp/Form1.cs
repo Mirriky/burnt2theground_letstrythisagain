@@ -31,10 +31,10 @@ namespace ConverterApp
         private void btn_CM_to_Inches_Click(object sender, EventArgs e)
         {
             const double CM_TO_INCH = 0.3937;
-           
+
             // validate user entry and convert to a double
 
-            if (! double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
+            if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
                 MessageBox.Show("A numeric must be entered. Please re-enter the value.");
                 txt_UnitOfMeasure.Clear();
@@ -47,19 +47,44 @@ namespace ConverterApp
             {
                 dbl_Convert = dbl_UofM * CM_TO_INCH;
                 txt_Convert.Text = dbl_Convert.ToString();
-                lbl_Display.Text = txt_UnitOfMeasure.Text + " centimetre is converted to ";
-            }
+
+                if (dbl_UofM == 1)
+                {
+                    lbl_Display.Text = txt_UnitOfMeasure.Text + " metre is converted to ";
+                }
                 else
                 {
-                lbl_Display.Text = txt_UnitOfMeasure.Text + " centimetres is converted to ";
+                    lbl_Display.Text = txt_UnitOfMeasure.Text + " centimetres is converted to ";
+                }
+                if (dbl_Convert == 1)
+                {
+                    lbl_Convert.Text = " inch.";
+                }
+                else
+                {
+                    lbl_Convert.Text = " inches.";
+                }
             }
-            if (dbl_Convert == 1)
+        }
+        private void btn_C_to_F_Click(object sender, EventArgs e)
+        {
+            // validate user entry and convert to a double
+
+            if (!double.TryParse(txt_UnitOfMeasure.Text, out dbl_UofM))
             {
-                lbl_Convert.Text = " inch.";
+                MessageBox.Show("A numeric must be entered. Please re-enter the value.");
+                txt_UnitOfMeasure.Clear();
+                txt_UnitOfMeasure.Focus();
+                txt_Convert.Clear();
+                lbl_Convert.Text = "";
+                lbl_Display.Text = "";
             }
             else
             {
-                lbl_Convert.Text = " inches.";
+                dbl_Convert = dbl_UofM * 1.8 + 32;
+                txt_Convert.Text = dbl_Convert.ToString() + "°";
+                lbl_Display.Text = txt_UnitOfMeasure.Text + "° Celsius is converted to ";
+                lbl_Convert.Text = " Fahrenheit.";
             }
         }
 
@@ -97,6 +122,7 @@ namespace ConverterApp
                 {
                     lbl_Convert.Text = " feet.";
                 }
+            }
         }
     }
 }
